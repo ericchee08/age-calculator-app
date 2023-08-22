@@ -14,4 +14,5 @@ body {
   height: 37rem;
   display: flex;
   border: solid black;
+  border-radius: 2rem 2rem 16rem 2rem;
 }
