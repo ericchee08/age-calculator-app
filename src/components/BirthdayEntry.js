@@ -1,5 +1,5 @@
 const BirthdayEntry = () => {
-  return <div>BirthdayEntry</div>;
+  return <div className="birthday-entry-container">BirthdayEntry</div>;
 };
 
 export default BirthdayEntry;

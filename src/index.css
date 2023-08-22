@@ -16,6 +16,7 @@ body {
   flex-direction: column;
   border: solid black;
   border-radius: 2rem 2rem 16rem 2rem;
+  align-items: center;
 }
 
 .top-row {
@@ -23,7 +24,7 @@ body {
   flex-direction: row;
   flex: 1;
   border: solid black;
-  justify-content: center;
+  width: 90%;
 }
 
 .bottom-row {
@@ -31,5 +32,5 @@ body {
   flex-direction: row;
   flex: 1.45;
   border: solid black;
-  justify-content: center;
+  width: 90%;
 }

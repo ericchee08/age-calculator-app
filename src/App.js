@@ -5,10 +5,10 @@ import BirthdayResult from "./components/BirthdayResult";
 function App() {
   return (
     <div className="container">
-      <div class="top-row">
+      <div className="top-row">
         <BirthdayEntry />
       </div>
-      <div class="bottom-row">
+      <div className="bottom-row">
         <BirthdayResult />
       </div>
     </div>
