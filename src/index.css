@@ -34,3 +34,45 @@ body {
   border: solid black;
   width: 90%;
 }
+
+.birthday-entry-container {
+  width:100%;
+}
+
+.day-input, .month-input, .year-input {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0.7rem
+}
+
+.day-input input, .month-input input, .year-input input {
+  border-radius: 0.5rem;
+  border: solid lightgray 1.6px;
+  height: 4rem;
+  padding: 0 1.8rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.7rem;
+  width: 7rem;
+  background-color: #F0F0F0;
+}
+
+label {
+  color: gray;
+  font-weight: bold;
+}
+
+form {
+  margin: 1.5rem 0.5rem 0rem 0rem;
+}
+
+.birthday-inputs {
+  display: flex;
+}
+
+hr {
+  border: none;
+  width: 100%;   
+  margin-top: 2rem;  
+  height: 1.2px;    
+  background-color: lightgray;
+}
