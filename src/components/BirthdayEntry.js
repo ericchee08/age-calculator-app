@@ -1,3 +1,5 @@
+import iconArrow from "../assets/images/icon-arrow.svg";
+
 const BirthdayEntry = () => {
   return <div className="birthday-entry-container">
     <form className="birthday-entry">
@@ -15,7 +17,12 @@ const BirthdayEntry = () => {
           <input type="text" placeholder="YYYY"/>
         </div>
       </div>
-      <hr />
+      <div className="button-container">
+        <hr />
+        <div className="submit-button">
+          <img classnName="icon-arrow" src={iconArrow} alt="" />
+        </div>
+      </div>
     </form>
   </div>;
 };
