@@ -14,25 +14,23 @@ body {
   height: 41rem;
   display: flex;
   flex-direction: column;
-  border: solid black;
   border-radius: 2rem 2rem 16rem 2rem;
   align-items: center;
+  background-color: white;
 }
 
 .top-row {
   display: flex;
   flex-direction: row;
   flex: 1;
-  border: solid black;
-  width: 90%;
+  width: 85%;
 }
 
 .bottom-row {
   display: flex;
   flex-direction: row;
-  flex: 1.45;
-  border: solid black;
-  width: 90%;
+  flex: 2;
+  width: 85%;
 }
 
 .birthday-entry-container {
@@ -49,12 +47,14 @@ body {
 .day-input input, .month-input input, .year-input input {
   border-radius: 0.5rem;
   border: solid lightgray 1.6px;
-  height: 4rem;
-  padding: 0 1.8rem;
+  height: 4.2rem;
+  padding: 0 1.4rem;
   margin-top: 0.5rem;
-  margin-bottom: 1.7rem;
+  margin-bottom: 0.5rem;
   width: 7rem;
-  background-color: #F0F0F0;
+  background-color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
 label {
@@ -93,4 +93,11 @@ hr {
   display: flex;
   flex-direction: row;
   justify-content: start;
+}
+
+.years, .months, .days {
+  font-size: 83px;
+  font-weight: 800;
+  font-style: italic;
+  margin: 0rem 0.5rem;
 }
