@@ -1,4 +1,4 @@
-const BirthdayResult = ({month, day}) => {
+const BirthdayResult = ({month, day, year}) => {
 
   const cleanSharedDay = (day) => {
     // Remove leading '0' if present
@@ -17,8 +17,7 @@ const BirthdayResult = ({month, day}) => {
     return month;
   };
 
-  const birthday = new Date(1997, cleanSharedMonth(month), cleanSharedDay(day)); // Change this to your actual birthday
-
+  const birthday = new Date(year, cleanSharedMonth(month), cleanSharedDay(day)); // Change this to your actual birthday
   const currentDate = new Date();
   const timeDifference = currentDate - birthday;
 
@@ -28,9 +27,9 @@ const BirthdayResult = ({month, day}) => {
 
   return (
     <div className="birthday-result-container">
-      <p className="years">{years} years</p>
-      <p className="months">{months} months</p>
-      <p className="days">{days} days</p>
+      <p className="years">{ year == "" ? "--" : years} years</p>
+      <p className="months">{ month == "" ? "--" : months} months</p>
+      <p className="days">{ day == "" ? "--" : days} days</p>
     </div>
   );
 };

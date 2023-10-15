@@ -6,6 +6,7 @@ import { useState } from 'react';
 function App() {
   const [month, setSharedMonth] = useState('');
   const [day, setSharedDay] = useState('');
+  const [year, setSharedYear] = useState('');
 
   const updateSharedMonth = (newValue) => {
     setSharedMonth(newValue);
@@ -15,17 +16,23 @@ function App() {
     setSharedDay(newValue);
   };
 
+  const updateSharedYear = (newValue) => {
+    setSharedYear(newValue);
+  }
+
   return (
     <div className="container">
       <div className="top-row">
         <BirthdayEntry 
          updateSharedMonth={updateSharedMonth} 
+         updateSharedYear={updateSharedYear}
          updateSharedDay={updateSharedDay}/>
       </div>
       <div className="bottom-row">
         <BirthdayResult 
         month={month} 
-        day={day}/>
+        day={day}
+        year={year}/>
       </div>
     </div>
   );

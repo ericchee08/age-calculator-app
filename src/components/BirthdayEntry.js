@@ -1,14 +1,15 @@
 import iconArrow from "../assets/images/icon-arrow.svg";
 import { useState } from 'react';
 
-const BirthdayEntry = ({updateSharedMonth, updateSharedDay }) => {
+const BirthdayEntry = ({updateSharedMonth, updateSharedDay, updateSharedYear }) => {
   const [month, setMonth] = useState('');
   const [day, setDay] = useState('');
+  const [year, setYear] = useState('');
   
   const handleMonthChange = (event) => {
     const selectedMonth = event.target.value;
     setMonth(selectedMonth); 
-
+    
     const dayInput = document.getElementById("dayInput");
     if (selectedMonth === "02") {
       dayInput.setAttribute("max", "28");
@@ -19,10 +20,17 @@ const BirthdayEntry = ({updateSharedMonth, updateSharedDay }) => {
     }
   };
 
+  const handleYearChange = (event) => {
+    const selectedYear = event.target.value;
+    setYear(selectedYear);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     updateSharedMonth(month);
     updateSharedDay(day);
+    updateSharedYear(year);
+
   };
 
   return (
@@ -54,7 +62,11 @@ const BirthdayEntry = ({updateSharedMonth, updateSharedDay }) => {
           </div>
           <div className="year-input">
             <label>YEAR</label>
-            <input type="number" placeholder="YYYY" />
+            <input type="number" 
+            placeholder="YYYY" 
+            value={year}
+            onChange={handleYearChange}
+             />
           </div>
         </div>
         <div className="button-container">
