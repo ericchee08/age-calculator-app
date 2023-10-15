@@ -27,9 +27,9 @@ const BirthdayResult = ({month, day, year}) => {
 
   return (
     <div className="birthday-result-container">
-      <p className="years">{ year == "" ? "--" : years} years</p>
-      <p className="months">{ month == "" ? "--" : months} months</p>
-      <p className="days">{ day == "" ? "--" : days} days</p>
+      <p className="years">{ year == "" ? "--" : years} <span className="calendrical">years</span></p>
+      <p className="months">{ month == "" ? "--" : months} <span className="calendrical">months</span></p>
+      <p className="days">{ day == "" ? "--" : days} <span className="calendrical">days</span></p>
     </div>
   );
 };

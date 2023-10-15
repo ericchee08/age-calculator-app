@@ -100,6 +100,11 @@ hr {
   font-weight: 800;
   font-style: italic;
   margin: 0rem 0.5rem;
+  color: #884EFE
+}
+
+.calendrical {
+  color: black
 }
 
 input[type=number]{
