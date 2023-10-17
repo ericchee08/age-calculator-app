@@ -11,10 +11,9 @@ const BirthdayEntry = ({updateSharedMonth, updateSharedDay, updateSharedYear }) 
     setMonth(selectedMonth); 
     
     const dayInput = document.getElementById("dayInput");
-    if (selectedMonth === "02") {
+    if (selectedMonth === "02" || selectedMonth === "2") {
       dayInput.setAttribute("max", "28");
-      dayInput.setAttribute("value", 1)
-    } else if (["04", "06", "09", "11"].includes(selectedMonth)) {
+    } else if (["4", "04", "6", "06", "9", "09", "11"].includes(selectedMonth)) {
       dayInput.setAttribute("max", "30");
     } else {
       dayInput.setAttribute("max", "31");
@@ -28,10 +27,17 @@ const BirthdayEntry = ({updateSharedMonth, updateSharedDay, updateSharedYear }) 
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateSharedMonth(month);
-    updateSharedDay(day);
-    updateSharedYear(year);
+    const isValidDay = parseInt(day) >= 1 && parseInt(day) <= 31;
+    const isValidMonth = parseInt(month) >= 1 && parseInt(month) <= 12;
+    const isValidYear = parseInt(year) >= 1 && parseInt(year) <= 9999; 
 
+    if (isValidDay && isValidMonth && isValidYear) {
+      updateSharedMonth(month);
+      updateSharedDay(day);
+      updateSharedYear(year);
+    } else {
+      alert("Invalid input. Please check your day, month, and year values.");
+    }
   };
 
   return (
