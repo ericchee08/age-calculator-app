@@ -13,6 +13,7 @@ const BirthdayEntry = ({updateSharedMonth, updateSharedDay, updateSharedYear }) 
     const dayInput = document.getElementById("dayInput");
     if (selectedMonth === "02") {
       dayInput.setAttribute("max", "28");
+      dayInput.setAttribute("value", 1)
     } else if (["04", "06", "09", "11"].includes(selectedMonth)) {
       dayInput.setAttribute("max", "30");
     } else {
