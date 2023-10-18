@@ -52,7 +52,6 @@ const BirthdayEntry = ({updateSharedMonth, updateSharedDay, updateSharedYear }) 
               placeholder="DD"
               min="1"
               max="31"
-              value={day} 
               onChange={(event) => setDay(event.target.value)} 
             />
           </div>
@@ -63,7 +62,6 @@ const BirthdayEntry = ({updateSharedMonth, updateSharedDay, updateSharedYear }) 
               placeholder="MM"
               min="1"
               max="12"
-              value={month} 
               onChange={handleMonthChange}
             />
           </div>
@@ -71,7 +69,6 @@ const BirthdayEntry = ({updateSharedMonth, updateSharedDay, updateSharedYear }) 
             <label>YEAR</label>
             <input type="number" 
             placeholder="YYYY" 
-            value={year}
             onChange={handleYearChange}
              />
           </div>
