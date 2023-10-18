@@ -4,35 +4,25 @@ import BirthdayResult from "./components/BirthdayResult";
 import { useState } from 'react';
 
 function App() {
-  const [month, setSharedMonth] = useState('');
-  const [day, setSharedDay] = useState('');
-  const [year, setSharedYear] = useState('');
+  const [calendarValues, setCalendarValues] = useState({
+    month: "",
+    day: "",
+    year: ""
+  })
 
-  const updateSharedMonth = (newValue) => {
-    setSharedMonth(newValue);
+  const updateCalendarValues = (newValue) => {
+    setCalendarValues(newValue);
   };
-
-  const updateSharedDay = (newValue) => {
-    setSharedDay(newValue);
-  };
-
-  const updateSharedYear = (newValue) => {
-    setSharedYear(newValue);
-  }
 
   return (
     <div className="container">
       <div className="top-row">
         <BirthdayEntry 
-         updateSharedMonth={updateSharedMonth} 
-         updateSharedYear={updateSharedYear}
-         updateSharedDay={updateSharedDay}/>
+         updateCalendarValues={updateCalendarValues} 
+      />
       </div>
       <div className="bottom-row">
-        <BirthdayResult 
-        month={month} 
-        day={day}
-        year={year}/>
+        <BirthdayResult calendarValues={calendarValues}/>
       </div>
     </div>
   );

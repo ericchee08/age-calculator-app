@@ -1,4 +1,8 @@
-const BirthdayResult = ({month, day, year}) => {
+const BirthdayResult = ({calendarValues}) => {
+
+  const day = calendarValues.day
+  const month = calendarValues.month
+  const year = calendarValues.year
 
   const cleanSharedDay = (day) => {
     if (day.length > 1 && day[0] === '0') {
@@ -24,7 +28,7 @@ const BirthdayResult = ({month, day, year}) => {
     return timeDifference
   }
 
-   const timeDifference = calculateTimeDifference(month,day,year)
+  const timeDifference = calculateTimeDifference(month,day,year)
   
   const years = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 365.25));
   const months = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));

@@ -1,42 +1,66 @@
 import iconArrow from "../assets/images/icon-arrow.svg";
 import { useState } from 'react';
 
-const BirthdayEntry = ({updateSharedMonth, updateSharedDay, updateSharedYear }) => {
-  const [month, setMonth] = useState('');
-  const [day, setDay] = useState('');
-  const [year, setYear] = useState('');
-  
-  const handleMonthChange = (event) => {
-    const selectedMonth = event.target.value;
-    setMonth(selectedMonth); 
-    
-    const dayInput = document.getElementById("dayInput");
-    if (selectedMonth === "02" || selectedMonth === "2") {
-      dayInput.setAttribute("max", "28");
-    } else if (["4", "04", "6", "06", "9", "09", "11"].includes(selectedMonth)) {
-      dayInput.setAttribute("max", "30");
-    } else {
-      dayInput.setAttribute("max", "31");
+const BirthdayEntry = ({updateCalendarValues}) => {
+  const [formData, setFormData] = useState({
+    month: "", day: "", year: ""
+  })
+
+  const [errors, setErrors] = useState({})
+
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    setFormData({
+      ...formData, [name] : value
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const validationErrors = {}
+
+    const month = parseInt(formData.month);
+    const day = parseInt(formData.day);
+    const year = parseInt(formData.year);
+
+    const isValidDay = day >= 1 && day <= 31;
+    const isValidMonth = month >= 1 && month <= 12;
+    const isValidYear = year >= 1 && year <= 9999; 
+
+    if(!isValidDay ) {
+      validationErrors.day = "invalid day"
     }
-  };
+    if(!isValidMonth ) {
+      validationErrors.month = "invalid month"
+    }
+    if(!isValidYear ) {
+      validationErrors.year = "invalid year"
+    }
 
-  const handleYearChange = (event) => {
-    const selectedYear = event.target.value;
-    setYear(selectedYear);
-  };
+    const monthMaxDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const isValidDay = parseInt(day) >= 1 && parseInt(day) <= 31;
-    const isValidMonth = parseInt(month) >= 1 && parseInt(month) <= 12;
-    const isValidYear = parseInt(year) >= 1 && parseInt(year) <= 9999; 
+    function isLeapYear(year) {
+      return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    }
+    
+    if (day > monthMaxDays[month - 1] || (month === 2 && day > 29 && isLeapYear(year))) {
+      validationErrors.day = "Day is out of range";
+    }
 
-    if (isValidDay && isValidMonth && isValidYear) {
-      updateSharedMonth(month);
-      updateSharedDay(day);
-      updateSharedYear(year);
-    } else {
-      alert("Invalid input. Please check your day, month, and year values.");
+    if(!day) {
+      validationErrors.day = "day is required"
+    }
+    if(!month) {
+      validationErrors.month = "month is required"
+    }
+    if(!year) {
+      validationErrors.year = "year is required"
+    }
+
+    setErrors(validationErrors)
+
+    if (isValidDay && isValidMonth && isValidYear && Object.keys(validationErrors).length === 0) {
+      updateCalendarValues(formData);
     }
   };
 
@@ -48,29 +72,37 @@ const BirthdayEntry = ({updateSharedMonth, updateSharedDay, updateSharedYear }) 
             <label>DAY</label>
             <input
               id="dayInput"
+              name="day"
               type="number"
               placeholder="DD"
               min="1"
               max="31"
-              onChange={(event) => setDay(event.target.value)} 
+              onChange={handleChange} 
             />
+            {errors.day && <span className="error-validation">{errors.day}</span>}
+
           </div>
           <div className="month-input">
             <label>MONTH</label>
             <input
               type="number"
+              name="month"
               placeholder="MM"
               min="1"
               max="12"
-              onChange={handleMonthChange}
+              onChange={handleChange} 
             />
+              {errors.month && <span className="error-validation">{errors.month}</span>}
           </div>
           <div className="year-input">
             <label>YEAR</label>
-            <input type="number" 
-            placeholder="YYYY" 
-            onChange={handleYearChange}
+            <input 
+              type="number" 
+              name="year"
+              placeholder="YYYY" 
+              onChange={handleChange} 
              />
+              {errors.year && <span className="error-validation">{errors.year}</span>}
           </div>
         </div>
         <div className="button-container">
