@@ -167,31 +167,31 @@ input[type=number]{
   }
 
   .container {
-    width: 20rem;
+    width: 17rem;
     border-radius: 2rem 2rem 6rem 2rem;
     height: 29rem;
   }
 
   .submit-button {
     position: absolute;
-    margin: 0 6.3rem;
+    margin: 0 5.4rem;
     width: 1.5rem;
     height: 1.5rem;
     margin-top: 0.5rem;
   }
 
   .years, .months, .days {
-    font-size: 2.7rem;
+    font-size: 2.4rem;
   }
 
   .day-input input, .month-input input, .year-input input {
     font-size: 0.7rem;
-    width: 40%;
+    width: 30%;
     height: 3.3rem;
   }
 
   hr {
-    margin-bottom: 2rem
+    margin-bottom: 2.5rem
   }
 
   .error-validation {
