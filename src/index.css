@@ -11,7 +11,7 @@ body {
 
 .container {
   width: 51rem;
-  height: 41rem;
+  height: 42.5rem;
   display: flex;
   flex-direction: column;
   border-radius: 2rem 2rem 16rem 2rem;
