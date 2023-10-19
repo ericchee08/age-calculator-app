@@ -1,4 +1,4 @@
-https://ec-age-calculator-app.netlify.app/
+Link to live application: https://ec-age-calculator-app.netlify.app/
 
 # Getting Started with Create React App
 
