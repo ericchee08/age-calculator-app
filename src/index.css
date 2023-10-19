@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-  width: 53rem;
+  width: 51rem;
   height: 41rem;
   display: flex;
   flex-direction: column;
@@ -50,7 +50,7 @@ input{
   height: 4.2rem;
   padding: 0 1.4rem;
   margin-top: 0.5rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
   width: 7rem;
   background-color: white;
   font-size: 1.8rem;
@@ -91,7 +91,6 @@ hr {
   height: 2.5rem;
   padding: 1.2rem;
   border-radius: 50px;
-  margin-right: 5rem;
 }
 
 .submit-button:hover{
