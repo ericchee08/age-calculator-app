@@ -44,17 +44,21 @@ body {
   margin: 0 0.7rem
 }
 
-.day-input input, .month-input input, .year-input input {
+input{
   border-radius: 0.5rem;
   border: solid lightgray 1.6px;
   height: 4.2rem;
   padding: 0 1.4rem;
   margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
   width: 7rem;
   background-color: white;
   font-size: 1.8rem;
   font-weight: bold;
+}
+
+input:hover{
+  border: solid #884EFE 1.6px;
 }
 
 label {
@@ -76,6 +80,7 @@ hr {
   height: 1.2px;    
   background-color: lightgray;
   width: 100%;
+  margin-bottom: 3rem;
 }
 
 .submit-button {
@@ -86,7 +91,11 @@ hr {
   height: 2.5rem;
   padding: 1.2rem;
   border-radius: 50px;
-  margin-right: 1rem;
+  margin-right: 5rem;
+}
+
+.submit-button:hover{
+  background-color: #550fe0;
 }
 
 .button-container {
@@ -107,6 +116,20 @@ hr {
   color: black
 }
 
+.error-validation {
+  color: red;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.error-label {
+  color: red;
+}
+
+.error-input {
+  border: solid red 1.6px;
+}
+
 input[type=number]{
   -moz-appearance: textfield;
 }
@@ -122,17 +145,20 @@ input[type=number]{
 
   .container {
     width: 30rem;
+    border-radius: 2rem 2rem 8rem 2rem;
+    height: 39rem
   }
 
   .years, .months, .days {
     font-size: 4rem;
   }
 
-  .day-input input, .month-input input, .year-input input {
+  input {
     width: 4rem;
     background-color: white;
     font-size: 1.5rem;
     font-weight: bold;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -167,5 +193,11 @@ input[type=number]{
 
   hr {
     margin-bottom: 2rem
+  }
+
+  .error-validation {
+    color: red;
+    font-style: italic;
+    font-size: 0.5rem;
   }
 }

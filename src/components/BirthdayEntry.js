@@ -23,18 +23,23 @@ const BirthdayEntry = ({updateCalendarValues}) => {
     const day = parseInt(formData.day);
     const year = parseInt(formData.year);
 
+    const currentDate = new Date();
+    let currentYear = currentDate.getFullYear();
+
     const isValidDay = day >= 1 && day <= 31;
     const isValidMonth = month >= 1 && month <= 12;
-    const isValidYear = year >= 1 && year <= 9999; 
+    const isValidYear = year >= 1 && year <= currentYear; 
+
+    
 
     if(!isValidDay ) {
-      validationErrors.day = "invalid day"
+      validationErrors.day = "Must be a valid day"
     }
     if(!isValidMonth ) {
-      validationErrors.month = "invalid month"
+      validationErrors.month = "Must be a valid month"
     }
     if(!isValidYear ) {
-      validationErrors.year = "invalid year"
+      validationErrors.year = "Must be in the past"
     }
 
     const monthMaxDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -48,13 +53,13 @@ const BirthdayEntry = ({updateCalendarValues}) => {
     }
 
     if(!day) {
-      validationErrors.day = "day is required"
+      validationErrors.day = "Must be a valid day"
     }
     if(!month) {
-      validationErrors.month = "month is required"
+      validationErrors.month = "Must be a valid day"
     }
     if(!year) {
-      validationErrors.year = "year is required"
+      validationErrors.year = "Must be a valid year"
     }
 
     setErrors(validationErrors)
@@ -69,46 +74,49 @@ const BirthdayEntry = ({updateCalendarValues}) => {
       <form className="birthday-entry">
         <div className="birthday-inputs">
           <div className="day-input">
-            <label>DAY</label>
+            <label className={errors.day ? "error-label" : ""}>DAY</label>
             <input
-              id="dayInput"
-              name="day"
               type="number"
+              name="day"
               placeholder="DD"
               min="1"
               max="31"
               onChange={handleChange} 
+              className={errors.day ? "error-input" : ""}
+
             />
             {errors.day && <span className="error-validation">{errors.day}</span>}
 
           </div>
           <div className="month-input">
-            <label>MONTH</label>
-            <input
+            <label className={errors.month ? "error-label" : ""}>MONTH</label>
+            <input 
               type="number"
               name="month"
               placeholder="MM"
               min="1"
               max="12"
               onChange={handleChange} 
+              className={errors.month ? "error-input" : ""}
             />
               {errors.month && <span className="error-validation">{errors.month}</span>}
           </div>
           <div className="year-input">
-            <label>YEAR</label>
+            <label className={errors.year ? "error-label" : ""}>YEAR</label>
             <input 
               type="number" 
               name="year"
               placeholder="YYYY" 
               onChange={handleChange} 
+              className={errors.year ? "error-input" : ""}
              />
               {errors.year && <span className="error-validation">{errors.year}</span>}
           </div>
         </div>
         <div className="button-container">
           <hr />
-          <div className="submit-button">
-            <img onClick={handleSubmit} className="icon-arrow" src={iconArrow} alt="" />
+          <div onClick={handleSubmit} className="submit-button">
+            <img className="icon-arrow" src={iconArrow} alt="" />
           </div>
         </div>
       </form>
