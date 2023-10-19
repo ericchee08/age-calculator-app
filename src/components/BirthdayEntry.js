@@ -30,8 +30,6 @@ const BirthdayEntry = ({updateCalendarValues}) => {
     const isValidMonth = month >= 1 && month <= 12;
     const isValidYear = year >= 1 && year <= currentYear; 
 
-    
-
     if(!isValidDay ) {
       validationErrors.day = "Must be a valid day"
     }
