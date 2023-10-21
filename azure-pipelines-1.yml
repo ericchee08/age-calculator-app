@@ -19,4 +19,5 @@ steps:
 - script: |
     npm install
     npm run build
+    npm install react-scripts --save
   displayName: 'npm install and build'
