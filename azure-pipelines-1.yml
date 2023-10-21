@@ -21,3 +21,19 @@ steps:
     npm run build
     npm install react-scripts --save
   displayName: 'npm install and build'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: 'ReactPipeline/build'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+    
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
